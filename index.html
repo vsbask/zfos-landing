@@ -49,23 +49,32 @@
       width: 92%;
     }
 
-    .lang-switcher {
-      margin-bottom: 20px;
-    }
-    .lang-btn {
-      background: #edf2f7;
-      border: 1px solid #e2e8f0;
-      color: #4a5568;
-      padding: 6px 10px;
-      margin: 0 4px;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 12px;
-      font-weight: 600;
-    }
-    .lang-btn:hover {
-      background: #e2e8f0;
-    }
+.lang-switcher {
+  margin-bottom: 20px;
+}
+.lang-btn {
+  background: #edf2f7;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin: 0 4px;
+  padding: 0;
+}
+.lang-btn:hover {
+  background: #e2e8f0;
+  transform: scale(1.08);
+  transition: all 0.2s ease;
+}
+.lang-btn img {
+  width: 20px;
+  height: 15px; /* флаги не квадратные — подгоняем под пропорции */
+  object-fit: contain;
+}
 
     .logo {
       margin-bottom: 24px;
@@ -154,10 +163,18 @@
   <div class="container">
     <!-- Переключатель языков -->
 <div class="lang-switcher">
-  <button class="lang-btn" data-lang="ru" title="Русский">🇷🇺</button>
-  <button class="lang-btn" data-lang="sr" title="Српски">🇷🇸</button>
-  <button class="lang-btn" data-lang="en" title="English">🇬🇧</button>
-  <button class="lang-btn" data-lang="uk" title="Українська">🇺🇦</button>
+  <button class="lang-btn" data-lang="ru" title="Русский">
+    <img src="https://flagcdn.com/w20/ru.png" alt="RU">
+  </button>
+  <button class="lang-btn" data-lang="sr" title="Српски">
+    <img src="https://flagcdn.com/w20/rs.png" alt="RS">
+  </button>
+  <button class="lang-btn" data-lang="en" title="English">
+    <img src="https://flagcdn.com/w20/gb.png" alt="GB">
+  </button>
+  <button class="lang-btn" data-lang="uk" title="Українська">
+    <img src="https://flagcdn.com/w20/ua.png" alt="UA">
+  </button>
 </div>
 
     <!-- ЛОГОТИП -->

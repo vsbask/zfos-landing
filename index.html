@@ -4,74 +4,124 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Свяжитесь с нами</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-yQ6eKc5XhW9YwJQ1qZvJ8Kk0jKj3vQ4J8KvKjE6Z0b6d1Z3V6jvK7XqQ5Vz1N2Z6Z5q1q2q1q1q1q1q1q1q1q1q1q1q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Font Awesome для иконок -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
+    /* === ФИРМЕННЫЕ ЦВЕТА — МЕНЯЙ ТОЛЬКО ЭТОТ БЛОК === */
+    :root {
+      --primary-color: #2b6cb0;     /* Основной цвет (заголовок, акценты) */
+      --bg-color: #f3f1ea;          /* Фон страницы */
+      --card-bg: #ffffff;           /* Фон карточки */
+      --text-color: #1a202c;        /* Основной текст */
+      --border-color: #e2e8f0;      /* Цвет границ */
+      --hover-bg: #f0f6ff;          /* Фон при наведении */
+      --shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+
     body {
       margin: 0;
       padding: 0;
       font-family: 'Segoe UI', system-ui, sans-serif;
-      background: #f5f7fa;
-      color: #2d3748;
+      background: var(--bg-color);
+      color: var(--text-color);
       display: flex;
       justify-content: center;
       align-items: center;
       min-height: 100vh;
+      line-height: 1.5;
     }
+
     .container {
       text-align: center;
-      background: white;
-      padding: 40px 24px;
+      background: var(--card-bg);
+      padding: 32px 20px;
       border-radius: 20px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-      max-width: 420px;
+      box-shadow: var(--shadow);
+      max-width: 800px;
       width: 92%;
     }
+
+    .logo {
+      margin-bottom: 24px;
+    }
+
+    .logo img {
+      max-width: 180px;
+      height: auto;
+    }
+
     h1 {
       font-size: 22px;
       font-weight: 600;
-      margin: 0 0 32px;
-      color: #1a202c;
+      margin: 0 0 28px;
+      color: var(--primary-color);
     }
+
+    .contacts-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
     .contact {
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 14px 0;
       padding: 14px 20px;
       background: #f8fafc;
       border-radius: 14px;
       text-decoration: none;
-      color: #2d3748;
+      color: var(--text-color);
       font-weight: 500;
       transition: all 0.15s ease;
-      border: 1px solid #e2e8f0;
+      border: 1px solid var(--border-color);
     }
+
     .contact:hover {
-      background: #edf2f7;
+      background: var(--hover-bg);
       transform: translateY(-1px);
-      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     }
+
     .contact i {
       font-size: 20px;
       width: 24px;
       text-align: center;
       margin-right: 14px;
-      color: #4a5568;
     }
+
     /* Цвета иконок по брендам */
     .whatsapp i { color: #25D366; }
     .telegram i { color: #0088cc; }
     .instagram i { color: #E1306C; }
     .facebook i { color: #1877F2; }
     .phone i { color: #319795; }
-    .website i { color: #4a5568; }
+    .website i { color: var(--text-color); }
+
+    /* === АДАПТИВ: две колонки на планшетах и десктопах === */
+    @media (min-width: 768px) {
+      .contacts-grid {
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+      .contact {
+        flex: 1 1 calc(50% - 8px); /* две колонки с небольшим отступом */
+        min-width: 200px;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="container">
+    <!-- ЛОГОТИП -->
+    <div class="logo">
+      <img src="https://raw.githubusercontent.com/ваш-логин/contacts-landing/main/logo.png" alt="Логотип компании">
+    </div>
+
     <h1>Свяжитесь с нами удобным способом</h1>
 
-    <!-- Замени ссылки ниже на свои! -->
+    <div class="contacts-grid">
+      <!-- Замени ссылки на свои! -->
     <a href="https://zelenergija.me" class="contact website" target="_blank">
       <i class="fas fa-globe"></i> Наш сайт
     </a>
@@ -89,7 +139,8 @@
     </a>
     <a href="tel:+38268221455" class="contact phone">
       <i class="fas fa-phone"></i> Позвонить
-    </a>
+      </a>
+    </div>
   </div>
 </body>
 </html>

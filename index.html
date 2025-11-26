@@ -4,17 +4,25 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Свяжитесь с нами</title>
-  <!-- Font Awesome для иконок -->
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PP5V0CM8FT"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-PP5V0CM8FT');
+  </script>
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
-    /* === ФИРМЕННЫЕ ЦВЕТА — МЕНЯЙ ТОЛЬКО ЭТОТ БЛОК === */
+    /* === ФИРМЕННЫЕ ЦВЕТА === */
     :root {
-      --primary-color: #2b6cb0;     /* Основной цвет (заголовок, акценты) */
-      --bg-color: #00522E;          /* Фон страницы */
-      --card-bg: #f3f1ea;           /* Фон карточки */
-      --text-color: #1a202c;        /* Основной текст */
-      --border-color: #e2e8f0;      /* Цвет границ */
-      --hover-bg: #f0f6ff;          /* Фон при наведении */
+      --primary-color: #f3f1ea;
+      --bg-color: #00522E;
+      --card-bg: #ffffff;
+      --text-color: #00522E;
+      --border-color: #e2e8f0;
+      --hover-bg: #C6CE18;
       --shadow: 0 4px 12px rgba(0,0,0,0.06);
     }
 
@@ -41,10 +49,27 @@
       width: 92%;
     }
 
+    .lang-switcher {
+      margin-bottom: 20px;
+    }
+    .lang-btn {
+      background: #edf2f7;
+      border: 1px solid #e2e8f0;
+      color: #4a5568;
+      padding: 6px 10px;
+      margin: 0 4px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .lang-btn:hover {
+      background: #e2e8f0;
+    }
+
     .logo {
       margin-bottom: 24px;
     }
-
     .logo img {
       max-width: 180px;
       height: auto;
@@ -90,22 +115,36 @@
       margin-right: 14px;
     }
 
-    /* Цвета иконок по брендам */
     .whatsapp i { color: #25D366; }
     .telegram i { color: #0088cc; }
     .instagram i { color: #E1306C; }
     .facebook i { color: #1877F2; }
     .phone i { color: #319795; }
     .website i { color: var(--text-color); }
+    .form i { color: #8e44ad; }
 
-    /* === АДАПТИВ: две колонки на планшетах и десктопах === */
+    /* Слайдшоу (пока скрыто) */
+    .carousel {
+      margin-top: 30px;
+      display: none; /* раскомментируй display: block; чтобы включить */
+      position: relative;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .carousel img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
     @media (min-width: 768px) {
       .contacts-grid {
         flex-direction: row;
         flex-wrap: wrap;
       }
       .contact {
-        flex: 1 1 calc(50% - 8px); /* две колонки с небольшим отступом */
+        flex: 1 1 calc(50% - 8px);
         min-width: 200px;
       }
     }
@@ -113,34 +152,120 @@
 </head>
 <body>
   <div class="container">
+    <!-- Переключатель языков -->
+<div class="lang-switcher">
+  <button class="lang-btn" data-lang="ru" title="Русский">🇷🇺</button>
+  <button class="lang-btn" data-lang="sr" title="Српски">🇷🇸</button>
+  <button class="lang-btn" data-lang="en" title="English">🇬🇧</button>
+  <button class="lang-btn" data-lang="uk" title="Українська">🇺🇦</button>
+</div>
+
     <!-- ЛОГОТИП -->
     <div class="logo">
       <img src="https://raw.githubusercontent.com/vsbask/zfos-landing/main/logo.png" alt="Логотип компании">
     </div>
 
-    <h1>Свяжитесь с нами удобным способом</h1>
+    <h1 data-key="title">Свяжитесь с нами удобным способом</h1>
 
     <div class="contacts-grid">
-      <!-- Замени ссылки на свои! -->
-    <a href="https://zelenergija.me" class="contact website" target="_blank">
-      <i class="fas fa-globe"></i> Наш сайт
-    </a>
-    <a href="https://wa.me/38268221455" class="contact whatsapp" target="_blank">
-      <i class="fab fa-whatsapp"></i> WhatsApp
-    </a>
-    <a href="https://t.me/zelenergija_bot" class="contact telegram" target="_blank">
-      <i class="fab fa-telegram"></i> Telegram
-    </a>
-    <a href="https://instagram.com/zfos_mn" class="contact instagram" target="_blank">
-      <i class="fab fa-instagram"></i> Instagram
-    </a>
-    <a href="https://facebook.com/61577337953116" class="contact facebook" target="_blank">
-      <i class="fab fa-facebook-f"></i> Facebook
-    </a>
-    <a href="tel:+38268221455" class="contact phone">
-      <i class="fas fa-phone"></i> Позвонить
+      <a href="https://zelenergija.me" class="contact website" target="_blank">
+        <i class="fas fa-globe"></i> <span data-key="website">Наш сайт</span>
+      </a>
+      <a href="https://wa.me/38268221455" class="contact whatsapp" target="_blank">
+        <i class="fab fa-whatsapp"></i> <span data-key="whatsapp">WhatsApp</span>
+      </a>
+      <a href="https://t.me/zelenergija_bot" class="contact telegram" target="_blank">
+        <i class="fab fa-telegram"></i> <span data-key="telegram">Telegram</span>
+      </a>
+      <a href="https://instagram.com/zfos_mn" class="contact instagram" target="_blank">
+        <i class="fab fa-instagram"></i> <span data-key="instagram">Instagram</span>
+      </a>
+      <a href="https://facebook.com/61577337953116" class="contact facebook" target="_blank">
+        <i class="fab fa-facebook-f"></i> <span data-key="facebook">Facebook</span>
+      </a>
+      <a href="tel:+38268221455" class="contact phone">
+        <i class="fas fa-phone"></i> <span data-key="phone">Позвонить</span>
+      </a>
+      <a href="https://forms.gle/3W5Fq4fo7gPWS3TT6" class="contact form" target="_blank">
+        <i class="fas fa-file-alt"></i> <span data-key="form">Отправить заявку</span>
       </a>
     </div>
+
+    <!-- СЛОТ ПОД СЛАЙДШОУ (раскомментируй, когда добавишь изображения) -->
+    <!--
+    <div class="carousel">
+      <img src="https://raw.githubusercontent.com/vsbask/zfos-landing/main/product1.jpg" alt="Продукт 1">
+      <img src="https://raw.githubusercontent.com/vsbask/zfos-landing/main/product2.jpg" alt="Продукт 2">
+      <img src="https://raw.githubusercontent.com/vsbask/zfos-landing/main/product3.jpg" alt="Продукт 3">
+    </div>
+    -->
   </div>
+
+  <script>
+    const translations = {
+      ru: {
+        title: "Свяжитесь с нами удобным способом",
+        website: "Наш сайт",
+        whatsapp: "WhatsApp",
+        telegram: "Telegram",
+        instagram: "Instagram",
+        facebook: "Facebook",
+        phone: "Позвонить",
+        form: "Отправить заявку"
+      },
+      sr: {
+        title: "Контактирајте нас на удобан начин",
+        website: "Наш сајт",
+        whatsapp: "ВацхАпп",
+        telegram: "Телеграм",
+        instagram: "Инстаграм",
+        facebook: "Фацебоок",
+        phone: "Позовите",
+        form: "Пошаљи захтев"
+      },
+      en: {
+        title: "Contact us in a convenient way",
+        website: "Our website",
+        whatsapp: "WhatsApp",
+        telegram: "Telegram",
+        instagram: "Instagram",
+        facebook: "Facebook",
+        phone: "Call us",
+        form: "Submit request"
+      },
+      uk: {
+        title: "Зв’яжіться з нами зручним способом",
+        website: "Наш сайт",
+        whatsapp: "WhatsApp",
+        telegram: "Telegram",
+        instagram: "Instagram",
+        facebook: "Facebook",
+        phone: "Подзвоніть",
+        form: "Надіслати запит"
+      }
+    };
+
+    function setLanguage(lang) {
+      document.querySelectorAll('[data-key]').forEach(el => {
+        const key = el.getAttribute('data-key');
+        if (translations[lang] && translations[lang][key]) {
+          el.textContent = translations[lang][key];
+        }
+      });
+      localStorage.setItem('lang', lang);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        setLanguage(btn.dataset.lang);
+      });
+    });
+
+    const savedLang = localStorage.getItem('lang') || 
+                      (navigator.language.startsWith('sr') ? 'sr' :
+                      (navigator.language.startsWith('uk') ? 'uk' :
+                      (navigator.language.startsWith('en') ? 'en' : 'ru')));
+    setLanguage(savedLang);
+  </script>
 </body>
 </html>
